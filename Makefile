@@ -6,7 +6,7 @@ all: omp mpi
 omp: test.cpp
 	g++ test.cpp $(FLAGS) $(APP_NAME)
 mpi: test_mpi.cpp
-	g++ test_mpi.cpp $(FLAGS) t_mpi
+	mpic++ test_mpi.cpp -o  test_mpi
 omp: 
 clean:
 	rm -rf $(APP_NAME)

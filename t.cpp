@@ -1,8 +1,8 @@
-# include <stdlib. h>
-# include <stdio. h>
-# include <math. h>
-# include <time. h>
-# include "mpi. h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <math.h>
+# include <time.h>
+# include "mpi.h"
 
 int main (int argc, char *argv []);
 
@@ -129,7 +129,7 @@ int main (int argc, char *argv []) {
     процессору 0.
     */
 
-    if (process_id! = master) {
+    if (process_id != master) {
         q_local = 0.0;
         printf ("Процессор %d активен! ", process_id);
 
