@@ -1,10 +1,9 @@
 FILES=test.cpp
 APP_NAME=t
-OPTIMIZE_LEVEL=3
-FLAGS=-Wall -Wunreachable-code -pedantic
+FLAGS=-fopenmp -o
 
 all:
-	g++ $(FILES) -fopenmp -o   $(APP_NAME)
+	g++ $(FILES) $(FLAGS)   $(APP_NAME)
 
 clean:
 	rm -rf $(APP_NAME)
