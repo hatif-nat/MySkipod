@@ -2,6 +2,7 @@
 #include <math.h>
 #include <omp.h>
 #include <ctime>
+#include <stdlib.h>
 #include <fstream>
 using namespace std;
 

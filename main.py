@@ -1,10 +1,8 @@
-from mpl_toolkits import mplot3d
+# from mpl_toolkits import mplot3d
 from sys import argv
 import datetime
 import os
-import numpy as np 
-import matplotlib.pyplot as plt
-import random
+# import matplotlib.pyplot as plt
 
 script, key = argv
 # pows = range(10,26)
@@ -44,7 +42,7 @@ for outputFile in sorted(os.listdir('tmp')):
     lines = file.readlines()
     cores = lines[0].split(',')
     times = [float(line.split(',')[2]) for line in lines]
-    md_time = np.mean(times)
+    md_time = sum(times)/3
     node = lines[0].split(',')[:-1]
     node.append(str(md_time))
     general_table.append(node) 
@@ -58,26 +56,28 @@ g_t_safe = open('gt_save/'+ key[1:] + '_g_t_' + str(datetime.datetime.now()) + '
 
 for node in general_table:
     g_t_safe.write(','.join(node) + '\n')
+
 g_t_safe.close()
-num_bars = len(general_table)
 
-fig = plt.figure();
+# num_bars = len(general_table)
 
-ax = plt.axes(projection= "3d")
+# fig = plt.figure();
 
-ax.set_xlabel('Cores')
-ax.set_ylabel('Pow of 2')
-ax.set_zlabel('Runtime (s)')
+# ax = plt.axes(projection= "3d")
 
-x_pos = [int(node[0]) for node in general_table]
-y_pos = [int(node[1]) for node in general_table]
-z_pos = [0] * num_bars
+# ax.set_xlabel('Cores')
+# ax.set_ylabel('Pow of 2')
+# ax.set_zlabel('Runtime (s)')
 
-z_size = [float(node[2]) for node in general_table]
-x_size = [0.25 for i in z_size]
-y_size = [0.25 for i in z_size]
+# x_pos = [int(node[0]) for node in general_table]
+# y_pos = [int(node[1]) for node in general_table]
+# z_pos = [0] * num_bars
 
-ax.bar3d(x_pos, y_pos, z_pos, x_size, y_size, z_size)
+# z_size = [float(node[2]) for node in general_table]
+# x_size = [0.25 for i in z_size]
+# y_size = [0.25 for i in z_size]
 
-plt.show()
+# ax.bar3d(x_pos, y_pos, z_pos, x_size, y_size, z_size)
+
+# plt.show()
 
