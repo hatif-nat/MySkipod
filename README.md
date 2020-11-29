@@ -2,11 +2,18 @@
 #### Разработка параллельной версии программы для вычисления определенного интеграла с использованием метода Симпсона
 
 #### Compile
-`cd build | make`
+`cd build`
+`make`
 
-#### RUN
+#### Запуск заданий
 ##### MPI 
-`python3 ./main -mpi`
+`python job_loader.py -mpi`
 
 ##### OMP
-`python3 ./main -omp`
+`python job_loader.py -omp` 
+
+#### Сбор результатов
+`python results_collector.py` 
+
+#### Построение графиков
+`python analyzer.py`

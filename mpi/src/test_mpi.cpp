@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <fstream>
-#include <iostream>
 using namespace std;
 
 const double my_exp  = 2.71828182846;
@@ -78,7 +77,7 @@ int main(int argc,char* argv[]) {
       MPI_Send(&my_result, 1, MPI_DOUBLE, dest, tag,
                     MPI_COMM_WORLD);      /* send my_result to intended dest.*/
       MPI_Send(&my_time, 1, MPI_DOUBLE, dest, tag-1,
-                    MPI_COMM_WORLD);              
+                    MPI_COMM_WORLD);      /* send my_time to intended dest.*/        
     MPI_Finalize();                       /* let MPI finish up ... */
   return 0;
 }
