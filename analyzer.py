@@ -36,5 +36,6 @@ def show_graph(filename):
 
 
 for file in sorted(os.listdir('results')):
+    print(file)
     show_graph('results/' + file)
 

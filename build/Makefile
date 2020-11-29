@@ -8,3 +8,4 @@ clean:
 	rm -rf ../test_mpi
 	rm -rf ../test_omp
 	rm -rf ../.tmp
+	rm -f  ../*.err ../*.out

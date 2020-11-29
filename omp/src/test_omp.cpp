@@ -30,7 +30,9 @@ double par_calc(int threads, int pows) {
 	int local_N = pow(2,pows) / threads;  			 //  number of partitions
 	double h = (right_br-left_br)/ (double) threads; //  section  
 	double I = 0;
+
 	#pragma omp parallel num_threads(threads) reduction(+:I)
+	
 	{
 		int thread_num = omp_get_thread_num();
 		double local_a = left_br + h*thread_num;
