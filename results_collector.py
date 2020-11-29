@@ -2,12 +2,12 @@
 import datetime
 import os
 
-if os.path.exists('.tmp/omp')):
-    general_table_omp = get_general_table('./tmp/omp'))
+if os.path.exists('.tmp/omp'):
+    general_table_omp = get_general_table('./tmp/omp')
     create_general_table_file(general_table, 'omp')
 
-if os.path.exists('.tmp/mpi')):
-    general_table_omp = get_general_table('./tmp/mpi'))
+if os.path.exists('.tmp/mpi'):
+    general_table_omp = get_general_table('./tmp/mpi')
     create_general_table_file(general_table, 'mpi')
 
 def get_general_table(path):
@@ -28,9 +28,15 @@ def create_general_table_file(general_table, key):
     
     results = open('results/'+ key + str(datetime.datetime.now()) + '.csv', 'w')
 
-    general_table = sorted[ [(int)node[0], (int)node[1], node[2]] for node in general_table]
+    
+    sorted_table = []
 
     for node in general_table:
+        sorted_table.append([int(node[0]), int(node[1]), float(node[2])])
+
+    sorted_table = sorted(sorted_table)
+    
+    for node in sorted_table:
         results.write(','.join(node) + '\n')
 
     results.close()
