@@ -3,10 +3,6 @@ from mpl_toolkits import mplot3d
 import os
 import matplotlib.pyplot as plt
 
-
-for file in sorted(os.listdir('results'))
-    show_graph(filename)
-
 def show_graph(filename):
     file = open(filename)
 
@@ -21,7 +17,7 @@ def show_graph(filename):
     fig = plt.figure();
 
     ax = plt.axes(projection= "3d")
-    ax.set_name(filename)
+
     ax.set_xlabel('Cores/Threads')
     ax.set_ylabel('Pow of 2')
     ax.set_zlabel('Runtime (s)')
@@ -31,10 +27,14 @@ def show_graph(filename):
     z_pos = [0] * num_bars
 
     z_size = [float(node[2]) for node in general_table]
-    x_size = [10 for i in z_size]
+    x_size = [0.7 for i in z_size]
     y_size = [0.7 for i in z_size]
 
     ax.bar3d(x_pos, y_pos, z_pos, x_size, y_size, z_size)
 
     plt.show()
+
+
+for file in sorted(os.listdir('results')):
+    show_graph('results/' + file)
 

@@ -2,15 +2,8 @@
 import datetime
 import os
 
-if os.path.exists('.tmp/omp'):
-    general_table_omp = get_general_table('./tmp/omp')
-    create_general_table_file(general_table, 'omp')
-
-if os.path.exists('.tmp/mpi'):
-    general_table_omp = get_general_table('./tmp/mpi')
-    create_general_table_file(general_table, 'mpi')
-
 def get_general_table(path):
+    general_table = []
     for outputFile in sorted(os.listdir(path)):
         file = open( path + outputFile, 'r')
         lines = file.readlines()
@@ -26,7 +19,7 @@ def create_general_table_file(general_table, key):
     if(not os.path.exists('results')):
         os.mkdir('results')
     
-    results = open('results/'+ key + str(datetime.datetime.now()) + '.csv', 'w')
+    results = open('results/'+ key + '_' + str(datetime.datetime.now().isoformat()) + '.csv', 'w')
 
     
     sorted_table = []
@@ -37,6 +30,14 @@ def create_general_table_file(general_table, key):
     sorted_table = sorted(sorted_table)
     
     for node in sorted_table:
-        results.write(','.join(node) + '\n')
+        results.write(','.join([str(key) for key in node]) + '\n')
 
     results.close()
+
+if os.path.exists('.tmp/omp'):
+    general_table = get_general_table('.tmp/omp/')
+    create_general_table_file(general_table, 'omp')
+
+if os.path.exists('.tmp/mpi'):
+    general_table = get_general_table('.tmp/mpi/')
+    create_general_table_file(general_table, 'mpi')
