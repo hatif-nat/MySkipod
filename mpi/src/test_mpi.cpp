@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <fstream>
+
 using namespace std;
 
 const double my_exp  = 2.71828182846;
