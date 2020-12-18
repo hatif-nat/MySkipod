@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
     fout.close();
 
     for (int i = 0 ; i < size ; i++) {
-        delete [] matrix[i];
+        //delete [] matrix[i];
     }
     delete [] matrix;
 
