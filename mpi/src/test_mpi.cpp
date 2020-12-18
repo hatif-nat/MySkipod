@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
     int i,j,k, kk;
-    int n, error, myrank, numproc, source, request;
+    int n, error, myrank, numproc, source;
     int start_row, last_row, nrow;
     float **A, *leading_row;
     double start_time, end_time, start_algo;
@@ -139,13 +139,13 @@ int main(int argc, char *argv[])
                 }
                 kk = 0;
                 for (; j<numproc; j++)
-                    MPI_Isend(&kk, 1, MPI_INT, j, 3, MPI_COMM_WORLD, &request);
+                    MPI_Send(&kk, 1, MPI_INT, j, 3, MPI_COMM_WORLD);
             }
             else
             {
                 kk = 0; // Не требуется строчка ни от какого из процессов
                 for (j=myrank+1; j<numproc; j++)
-                    MPI_Isend(&kk, 1, MPI_INT, j, 3, MPI_COMM_WORLD, &request);
+                    MPI_Send(&kk, 1, MPI_INT, j, 3, MPI_COMM_WORLD);
             }
             if (k == nrow)
             {
