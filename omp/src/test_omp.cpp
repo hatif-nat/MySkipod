@@ -6,7 +6,7 @@ using namespace std;
 
 void to_zero_columb(long double **matrix, int size, int columb, int nThreads)
 {
-    auto *current_row = new long double[size];
+    long double *current_row = new long double[size];
     current_row = matrix[columb];
 
     #pragma omp parallel for shared(matrix, current_row) num_threads(nThreads)
