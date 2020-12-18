@@ -4,6 +4,8 @@
 
 using namespace std;
 
+export OMP_THREAD_LIMIT = 600
+
 void to_zero_columb(long double **matrix, int size, int columb, int nThreads)
 {
     long double *current_row = new long double[size];
