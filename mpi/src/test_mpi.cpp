@@ -9,7 +9,7 @@ using namespace std;
 int main(int argc,char* argv[]) {
     int i,j,k, kk;
     int n, error, myrank, numproc, source;
-    MPI_Request *request;
+    MPI_Request request;
     int start_row, last_row, nrow;
     float **A, *leading_row;
     double start_time, end_time, start_algo;
