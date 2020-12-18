@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
         p - количесво процессов
         c, a - коэф-ты, которые нужно будет умножать элементы
     */
-    time_t time_start, time_end;
+    double time_start, time_end;
     double **m;
 
     bool test = true;
