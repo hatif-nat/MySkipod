@@ -20,7 +20,6 @@ void to_zero_columb(long double **matrix, int size, int columb, int nThreads)
         }
     }
 
-    delete[] current_row;
 }
 long double diagonal_el(long double **matrix, int size, int columb, int nThreads)
 {
@@ -45,7 +44,7 @@ long double diagonal_el(long double **matrix, int size, int columb, int nThreads
         return 0;
     }
     to_zero_columb(matrix, size, columb, nThreads);
-    delete [] current_row;
+    
     if (sign)
     {
         return matrix[columb][columb];
