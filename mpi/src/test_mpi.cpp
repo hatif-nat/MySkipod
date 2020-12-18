@@ -3,6 +3,7 @@
 #include <mpi.h>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
