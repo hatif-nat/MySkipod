@@ -17,7 +17,7 @@ if(not os.path.exists(tmp)):
 sys_call = 'echo "Hi"'
 for size in sizes:
     for core in cores:
-        for times in range(0,3):
+        for times in range(0,1):
             if (key == 'mpi'):
                 output_filename = tmp + 'mpi-' + str(core) +'-' + str(size) + '.csv'
                 if (len(argv) == 3):
