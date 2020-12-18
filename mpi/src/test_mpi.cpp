@@ -154,7 +154,7 @@ int main(int argc, char **argv) {
             //cout << "\nMPI execution time: " << time_end - time_start << endl;
             std::ofstream fout(argv[2], ios::app);
             fout.is_open();
-            fout << p << "," << argv[1] << "," << time << '\n';
+            fout << p << "," << argv[1] << "," << time_end - time_start << '\n';
             fout.close();
         }
     }
