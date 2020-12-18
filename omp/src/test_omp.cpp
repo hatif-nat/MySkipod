@@ -12,7 +12,7 @@ void to_zero_columb(long double **matrix, int size, int columb, int nThreads)
     #pragma omp parallel for shared(matrix, current_row) num_threads(nThreads)
     for (int i = columb + 1; i < size; i++) {
         if (omp_get_num_threads() != int(nThreads)) {
-            std::cerr << omp_get_num_threads() << std::endl;
+            //std::cerr << omp_get_num_threads() << std::endl;
         }
         long double mnoz = matrix[i][columb] / current_row[columb];
         for (int j = columb; j < size; j++) {
@@ -63,14 +63,14 @@ int main(int argc, char* argv[]) {
     int nThreads = atoi(argv[1]);
     size =  atoi(argv[2]);
 
-    std::srand(125);
+    srand(125);
     long double **matrix;
     matrix = new long double*[size];
     for (int i = 0 ; i < size ; i++)
     {
         matrix[i] = new long double[size];
         for (int j = 0; j < size; j++) {
-            matrix[i][j] = (std::rand()) % 10;
+            matrix[i][j] = (rand()) % 10;
         }
     }
 
@@ -94,7 +94,7 @@ int main(int argc, char* argv[]) {
     }
     delete [] matrix;
 
-    cout.precision(17);
-    cout << result;
+    //cout.precision(17);
+    //cout << result;
     return 0;
 }
