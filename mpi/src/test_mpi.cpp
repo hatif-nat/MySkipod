@@ -8,7 +8,8 @@ using namespace std;
 
 int main(int argc,char* argv[]) {
     int i,j,k, kk;
-    int n, error, myrank, numproc, source, request;
+    int n, error, myrank, numproc, source;
+    MPI_Request *request;
     int start_row, last_row, nrow;
     float **A, *leading_row;
     double start_time, end_time, start_algo;
@@ -201,13 +202,13 @@ int main(int argc,char* argv[]) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
-    if(myid == 0) {
+    if(!myrank) {
 
         end_time = MPI_Wtime();
 
         std::ofstream fout(argv[2], ios::app);
         fout.is_open();
-        fout << p << "," << argv[1] << "," << end_time - start_algo << '\n';
+        fout << numproc << "," << argv[1] << "," << end_time - start_algo << '\n';
         fout.close();
     }
     // Освобождаем память, выделенную под матрицу
