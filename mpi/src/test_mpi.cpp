@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
             else
             {
                 for (j=0; j<n; j++) {
-                    leading_row[j] = (rand()) % 10
+                    leading_row[j] = (rand()) % 10;
                 }
                 MPI_Send(leading_row, n, MPI_FLOAT, k, 1, MPI_COMM_WORLD);
             }
