@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <mpi.h>
 #include <malloc.h>
+#include <fstream>
 
 using namespace std;
 
