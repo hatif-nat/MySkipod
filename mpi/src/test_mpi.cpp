@@ -30,16 +30,7 @@ double** initMatrix(size_t n, MatrixType type = RANDOM) {
     double **m = alloc_2d(n, n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            switch (type) {
-                case RANDOM:
-                    m[i][j] = (double)(rand() % 100);
-                    break;
-                case IDENTITY:
-                    m[i][j] = (i == j) ? 1 : 0;
-                    break;
-                default:
-                    m[i][j] = 0;
-                    break;
+            m[i][j] = (double)(rand() % 100);
             }
         }
     }
@@ -68,7 +59,7 @@ int main(int argc, char **argv) {
         p - количесво процессов
         c, a - коэф-ты, которые нужно будет умножать элементы
     */
-    time_t time_start, time_end;
+    double time_start, time_end;
     double **m, **I;
 
     bool test = true;
