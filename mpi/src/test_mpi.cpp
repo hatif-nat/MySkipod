@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
     bool test = true;
     int matrix_size = 3;
     if (argc > 1) {
-        if ((matrix_size = stoi(argv[1])) > 0) {
+        if ((matrix_size = atoi(argv[1])) > 0) {
             test = false;
         }
     }
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
     // количество процессов
     MPI_Comm_size(MPI_COMM_WORLD, &p);
 
-    m = initMatrix1(matrix_size);
+    m = initMatrix(matrix_size);
 
     // если это главный процесс, то он инициализирует матрицу
     if (id == 0) {
