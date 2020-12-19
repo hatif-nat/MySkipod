@@ -87,7 +87,7 @@ int main(int argc, char **argv) {
     bool test = true;
     int matrix_size = 3;
     if (argc > 1) {
-        if ((matrix_size = stoi(argv[1])) > 0) {
+        if ((matrix_size = atoi(argv[1])) > 0) {
             test = false;
         }
     }
