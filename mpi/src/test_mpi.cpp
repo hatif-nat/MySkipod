@@ -4,6 +4,9 @@
 #include <mpi.h>
 #include <malloc.h>
 #include <fstream>
+#include <string>
+#include <stdlib.h>
+
 using namespace std;
 
 enum MatrixType {
