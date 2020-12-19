@@ -2,7 +2,7 @@ all : omp mpi
 omp:
 	xlc++ ../omp/src/test_omp.cpp -qsmp=omp -o ../test_omp
 mpi:
-	mpicxx -o test_mpi -std=c++11 test_mpi.cpp
+	mpicxx -o test_mpi -std=c++11 ../test_mpi.cpp
 
 clean:
 	rm -rf ../test_mpi
