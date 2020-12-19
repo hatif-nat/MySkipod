@@ -2,7 +2,7 @@
 #include <random>
 #include <iomanip>
 #include <mpi.h>
-#include <malloc/malloc.h>
+#include <malloc.h>
 #include <fstream>
 using namespace std;
 
