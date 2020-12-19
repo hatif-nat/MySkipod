@@ -17,15 +17,15 @@ if(not os.path.exists(tmp)):
 sys_call = 'echo "Hi"'
 for size in sizes:
     for core in cores:
-        for times in range(0,3):
+        for times in range(0,1):
             if (key == 'mpi'):
                 output_filename = tmp + 'mpi-' + str(core) +'-' + str(size) + '.csv'
                 if (len(argv) == 3):
                     if argv[2] == '-pc':
                         sys_call = 'mpirun -np ' + str(core) + ' ./test_mpi ' + str(size) + ' ' + str(output_filename)
-                    else: 
+                    else:
                         print('Error key')
-                else: 
+                else:
                     sys_call = 'mpisubmit.bg -n ' + str(core) + ' -w 5:00 ./test_mpi -- ' + str(size) + ' ' + str(output_filename)
             elif (key == 'omp'):
                 output_filename = tmp + 'omp-' + str(core) +'-' + str(size) + '.csv'
